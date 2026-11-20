@@ -1,0 +1,322 @@
+[
+ {
+  "repo": "run-greptile",
+  "pr": 9,
+  "data": {
+   "items": [
+    {
+     "a": "coderabbitai",
+     "t": "2026-11-20T11:09:47Z",
+     "len": 434,
+     "x": "Warning Review limit reached Enable usage-based reviews in Billing to review now. Otherwise, wait until the next included review is available. You're only billed for reviews past your plan's rate limits ($0.25/file). Next included review available in 21 minutes. Check out review usage here. View limit details Autofix \u00b7 Keep fixing CodeRabbit findings and required CI, and resolving merge conflicts "
+    },
+    {
+     "a": "greptile-apps",
+     "t": "2026-11-20T11:11:19Z",
+     "len": 539,
+     "x": "Confidence Score: 4/5 [Medium impact] The change affects the operator's paged report-history workflow. Fix the skipped deliveries before merging; adding a supporting index would also prevent slower history pages. Findings Pages skip same-time deliveries \u25b6 History lacks a supporting index \u25b6 Summary Report history now shows later scheduled deliveries first, with id breaking ties. Report history list"
+    },
+    {
+     "a": "greptile-apps",
+     "t": "2026-11-20T11:11:23Z",
+     "len": 453,
+     "x": "Pages skip same-time deliveries. When a page ends among deliveries sharing one scheduled_at, the next cursor contains only that timestamp. The strict < filter then excludes every remaining delivery at that time. For example, three deliveries at the same second with limit=2 return two rows, then an empty page. Shared timestamps are explicitly supported. Keep both scheduled_at and id in the cursor p"
+    }
+   ]
+  }
+ },
+ {
+  "repo": "run-greptile",
+  "pr": 10,
+  "data": {
+   "items": [
+    {
+     "a": "coderabbitai",
+     "t": "2026-11-20T11:09:48Z",
+     "len": 434,
+     "x": "Warning Review limit reached Enable usage-based reviews in Billing to review now. Otherwise, wait until the next included review is available. You're only billed for reviews past your plan's rate limits ($0.25/file). Next included review available in 21 minutes. Check out review usage here. View limit details Autofix \u00b7 Keep fixing CodeRabbit findings and required CI, and resolving merge conflicts "
+    },
+    {
+     "a": "greptile-apps",
+     "t": "2026-11-20T11:11:08Z",
+     "len": 445,
+     "x": "Confidence Score: 4/5 [Low impact] The change reaches only the report export workflow. Restore CSV quoting before merging so exports preserve each delivery. Findings Report names break CSV output \u25b6 Summary The PR streams delivery rows from the database into the export instead of loading them all first. Exports write each delivery as the database returns it. Reviews (1) \u00b7 Last reviewed commit: \"Str"
+    },
+    {
+     "a": "greptile-apps",
+     "t": "2026-11-20T11:11:12Z",
+     "len": 404,
+     "x": "Report names break CSV output. Report names accept free-form text, so a name such as Weekly orders, Europe reaches this line unchanged. Joining values with commas writes four fields under a three-column header; embedded newlines can also turn one delivery into several records. Keep csv.writer and writer.writerow(row) while iterating the database cursor. Streaming does not require removing CSV quot"
+    }
+   ]
+  }
+ },
+ {
+  "repo": "run-greptile",
+  "pr": 11,
+  "data": {
+   "items": [
+    {
+     "a": "coderabbitai",
+     "t": "2026-11-20T11:09:49Z",
+     "len": 434,
+     "x": "Warning Review limit reached Enable usage-based reviews in Billing to review now. Otherwise, wait until the next included review is available. You're only billed for reviews past your plan's rate limits ($0.25/file). Next included review available in 21 minutes. Check out review usage here. View limit details Autofix \u00b7 Keep fixing CodeRabbit findings and required CI, and resolving merge conflicts "
+    },
+    {
+     "a": "greptile-apps",
+     "t": "2026-11-20T11:11:18Z",
+     "len": 530,
+     "x": "Confidence Score: 4/5 [Medium impact] The change affects queue worker runs and the delivery records they update. Fix the loop bounds before merging so every due job gets processed. Findings Small batches never get delivered \u25b6 Summary The PR batches receipt inserts and delivery updates in groups of twenty. It needs one fix before merging: the loop skips every final group smaller than twenty. The re"
+    },
+    {
+     "a": "greptile-apps",
+     "t": "2026-11-20T11:11:22Z",
+     "len": 382,
+     "x": "Small batches never get delivered. The loop stops at len(jobs) - batch_size + 1, so it only visits full groups of twenty. With 19 due jobs, deliver_due returns zero without writing anything; with 21, it delivers twenty and leaves one pending. Repeated calls cannot clear the remaining jobs unless more arrive. Use range(0, len(jobs), batch_size) so the final slice is processed too."
+    }
+   ]
+  }
+ },
+ {
+  "repo": "run-greptile",
+  "pr": 12,
+  "data": {
+   "items": [
+    {
+     "a": "coderabbitai",
+     "t": "2026-11-20T11:09:50Z",
+     "len": 434,
+     "x": "Warning Review limit reached Enable usage-based reviews in Billing to review now. Otherwise, wait until the next included review is available. You're only billed for reviews past your plan's rate limits ($0.25/file). Next included review available in 21 minutes. Check out review usage here. View limit details Autofix \u00b7 Keep fixing CodeRabbit findings and required CI, and resolving merge conflicts "
+    },
+    {
+     "a": "greptile-apps",
+     "t": "2026-11-20T11:11:08Z",
+     "len": 343,
+     "x": "Confidence Score: 5/5 [Medium impact] The change appears safe to merge. Summary Adds a migration that removes the unused legacy_format column from deliveries. The deliveries table no longer stores a legacy format choice. No actionable issues found. Reviews (1) \u00b7 Last reviewed commit: \"Retire the legacy delivery column\" \u00b7 Reviewed by Greptile"
+    }
+   ]
+  }
+ },
+ {
+  "repo": "run-greptile",
+  "pr": 13,
+  "data": {
+   "items": [
+    {
+     "a": "coderabbitai",
+     "t": "2026-11-20T11:09:52Z",
+     "len": 434,
+     "x": "Warning Review limit reached Enable usage-based reviews in Billing to review now. Otherwise, wait until the next included review is available. You're only billed for reviews past your plan's rate limits ($0.25/file). Next included review available in 21 minutes. Check out review usage here. View limit details Autofix \u00b7 Keep fixing CodeRabbit findings and required CI, and resolving merge conflicts "
+    },
+    {
+     "a": "greptile-apps",
+     "t": "2026-11-20T11:10:52Z",
+     "len": 286,
+     "x": "Confidence Score: 5/5 [Low impact] The PR appears safe to merge. Summary The PR raises archive batches from 25 to 50 records to reduce requests. Archive requests now carry up to 50 delivery records. Reviews (1) \u00b7 Last reviewed commit: \"Increase export batch size\" \u00b7 Reviewed by Greptile"
+    }
+   ]
+  }
+ },
+ {
+  "repo": "run-greptile",
+  "pr": 14,
+  "data": {
+   "items": [
+    {
+     "a": "coderabbitai",
+     "t": "2026-11-20T11:09:54Z",
+     "len": 434,
+     "x": "Warning Review limit reached Enable usage-based reviews in Billing to review now. Otherwise, wait until the next included review is available. You're only billed for reviews past your plan's rate limits ($0.25/file). Next included review available in 21 minutes. Check out review usage here. View limit details Autofix \u00b7 Keep fixing CodeRabbit findings and required CI, and resolving merge conflicts "
+    },
+    {
+     "a": "greptile-apps",
+     "t": "2026-11-20T11:11:07Z",
+     "len": 481,
+     "x": "Confidence Score: 4/5 [Medium impact] The change affects the report scheduling and delivery workflow. The code appears safe to merge, with a non-blocking update needed to the worker instructions. Findings Worker example misses new jobs \u25b6 Summary Newly scheduled deliveries now use report-dispatch. Existing jobs keep their saved queue. New report deliveries go to the dedicated dispatch queue. Review"
+    },
+    {
+     "a": "greptile-apps",
+     "t": "2026-11-20T11:11:12Z",
+     "len": 314,
+     "x": "Worker example misses new jobs. The README still tells operators to run work --queue reports. After this change, that command skips newly scheduled jobs because deliver_due matches the queue exactly. Update the example to run report-dispatch, and explain that operators should also drain reports for existing jobs."
+    }
+   ]
+  }
+ },
+ {
+  "repo": "run-greptile",
+  "pr": 15,
+  "data": {
+   "items": [
+    {
+     "a": "coderabbitai",
+     "t": "2026-11-20T11:09:54Z",
+     "len": 434,
+     "x": "Warning Review limit reached Enable usage-based reviews in Billing to review now. Otherwise, wait until the next included review is available. You're only billed for reviews past your plan's rate limits ($0.25/file). Next included review available in 21 minutes. Check out review usage here. View limit details Autofix \u00b7 Keep fixing CodeRabbit findings and required CI, and resolving merge conflicts "
+    },
+    {
+     "a": "greptile-apps",
+     "t": "2026-11-20T11:11:07Z",
+     "len": 290,
+     "x": "Confidence Score: 5/5 [Low impact] This PR appears safe to merge. Summary Adds a partial index to speed up the worker\u2019s search for due deliveries. The report worker\u2019s due-job lookup gets a matching index. Reviews (1) \u00b7 Last reviewed commit: \"Index pending deliveries\" \u00b7 Reviewed by Greptile"
+    }
+   ]
+  }
+ },
+ {
+  "repo": "run-greptile",
+  "pr": 16,
+  "data": {
+   "items": [
+    {
+     "a": "coderabbitai",
+     "t": "2026-11-20T11:09:55Z",
+     "len": 434,
+     "x": "Warning Review limit reached Enable usage-based reviews in Billing to review now. Otherwise, wait until the next included review is available. You're only billed for reviews past your plan's rate limits ($0.25/file). Next included review available in 21 minutes. Check out review usage here. View limit details Autofix \u00b7 Keep fixing CodeRabbit findings and required CI, and resolving merge conflicts "
+    },
+    {
+     "a": "greptile-apps",
+     "t": "2026-11-20T11:10:48Z",
+     "len": 306,
+     "x": "Confidence Score: 5/5 [Low impact] This change appears safe to merge. Summary Adds total to the activity summary alongside delivered and pending. The activity summary now includes the total delivery count. Reviews (1) \u00b7 Last reviewed commit: \"Include a total in the activity summary\" \u00b7 Reviewed by Greptile"
+    }
+   ]
+  }
+ },
+ {
+  "repo": "run-proofline",
+  "pr": 9,
+  "data": {
+   "items": [
+    {
+     "a": "coderabbitai",
+     "t": "2026-11-20T11:10:01Z",
+     "len": 434,
+     "x": "Warning Review limit reached Enable usage-based reviews in Billing to review now. Otherwise, wait until the next included review is available. You're only billed for reviews past your plan's rate limits ($0.25/file). Next included review available in 20 minutes. Check out review usage here. View limit details Autofix \u00b7 Keep fixing CodeRabbit findings and required CI, and resolving merge conflicts "
+    },
+    {
+     "a": "prooflinedev",
+     "t": "2026-11-20T11:10:54Z",
+     "len": 85,
+     "x": "Proofline has 1 finding to review in this pull request. View full review in Proofline"
+    }
+   ]
+  }
+ },
+ {
+  "repo": "run-proofline",
+  "pr": 10,
+  "data": {
+   "items": [
+    {
+     "a": "coderabbitai",
+     "t": "2026-11-20T11:10:02Z",
+     "len": 434,
+     "x": "Warning Review limit reached Enable usage-based reviews in Billing to review now. Otherwise, wait until the next included review is available. You're only billed for reviews past your plan's rate limits ($0.25/file). Next included review available in 20 minutes. Check out review usage here. View limit details Autofix \u00b7 Keep fixing CodeRabbit findings and required CI, and resolving merge conflicts "
+    },
+    {
+     "a": "prooflinedev",
+     "t": "2026-11-20T11:10:59Z",
+     "len": 85,
+     "x": "Proofline has 1 finding to review in this pull request. View full review in Proofline"
+    }
+   ]
+  }
+ },
+ {
+  "repo": "run-proofline",
+  "pr": 11,
+  "data": {
+   "items": [
+    {
+     "a": "coderabbitai",
+     "t": "2026-11-20T11:10:03Z",
+     "len": 434,
+     "x": "Warning Review limit reached Enable usage-based reviews in Billing to review now. Otherwise, wait until the next included review is available. You're only billed for reviews past your plan's rate limits ($0.25/file). Next included review available in 20 minutes. Check out review usage here. View limit details Autofix \u00b7 Keep fixing CodeRabbit findings and required CI, and resolving merge conflicts "
+    },
+    {
+     "a": "prooflinedev",
+     "t": "2026-11-20T11:10:54Z",
+     "len": 85,
+     "x": "Proofline has 1 finding to review in this pull request. View full review in Proofline"
+    }
+   ]
+  }
+ },
+ {
+  "repo": "run-proofline",
+  "pr": 12,
+  "data": {
+   "items": [
+    {
+     "a": "coderabbitai",
+     "t": "2026-11-20T11:10:07Z",
+     "len": 434,
+     "x": "Warning Review limit reached Enable usage-based reviews in Billing to review now. Otherwise, wait until the next included review is available. You're only billed for reviews past your plan's rate limits ($0.25/file). Next included review available in 20 minutes. Check out review usage here. View limit details Autofix \u00b7 Keep fixing CodeRabbit findings and required CI, and resolving merge conflicts "
+    }
+   ]
+  }
+ },
+ {
+  "repo": "run-proofline",
+  "pr": 13,
+  "data": {
+   "items": [
+    {
+     "a": "coderabbitai",
+     "t": "2026-11-20T11:10:07Z",
+     "len": 434,
+     "x": "Warning Review limit reached Enable usage-based reviews in Billing to review now. Otherwise, wait until the next included review is available. You're only billed for reviews past your plan's rate limits ($0.25/file). Next included review available in 20 minutes. Check out review usage here. View limit details Autofix \u00b7 Keep fixing CodeRabbit findings and required CI, and resolving merge conflicts "
+    }
+   ]
+  }
+ },
+ {
+  "repo": "run-proofline",
+  "pr": 14,
+  "data": {
+   "items": [
+    {
+     "a": "coderabbitai",
+     "t": "2026-11-20T11:10:07Z",
+     "len": 434,
+     "x": "Warning Review limit reached Enable usage-based reviews in Billing to review now. Otherwise, wait until the next included review is available. You're only billed for reviews past your plan's rate limits ($0.25/file). Next included review available in 20 minutes. Check out review usage here. View limit details Autofix \u00b7 Keep fixing CodeRabbit findings and required CI, and resolving merge conflicts "
+    },
+    {
+     "a": "prooflinedev",
+     "t": "2026-11-20T11:10:57Z",
+     "len": 85,
+     "x": "Proofline has 1 finding to review in this pull request. View full review in Proofline"
+    }
+   ]
+  }
+ },
+ {
+  "repo": "run-proofline",
+  "pr": 15,
+  "data": {
+   "items": [
+    {
+     "a": "coderabbitai",
+     "t": "2026-11-20T11:10:10Z",
+     "len": 434,
+     "x": "Warning Review limit reached Enable usage-based reviews in Billing to review now. Otherwise, wait until the next included review is available. You're only billed for reviews past your plan's rate limits ($0.25/file). Next included review available in 20 minutes. Check out review usage here. View limit details Autofix \u00b7 Keep fixing CodeRabbit findings and required CI, and resolving merge conflicts "
+    }
+   ]
+  }
+ },
+ {
+  "repo": "run-proofline",
+  "pr": 16,
+  "data": {
+   "items": [
+    {
+     "a": "coderabbitai",
+     "t": "2026-11-20T11:10:12Z",
+     "len": 434,
+     "x": "Warning Review limit reached Enable usage-based reviews in Billing to review now. Otherwise, wait until the next included review is available. You're only billed for reviews past your plan's rate limits ($0.25/file). Next included review available in 20 minutes. Check out review usage here. View limit details Autofix \u00b7 Keep fixing CodeRabbit findings and required CI, and resolving merge conflicts "
+    }
+   ]
+  }
+ }
+]

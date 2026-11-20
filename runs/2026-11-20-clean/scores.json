@@ -1,0 +1,79 @@
+{
+ "run": "clean rerun 2026-11-20, PRs 9-16 on run-greptile and run-proofline, diffs hash-identical to pilot (16/16)",
+ "cases": {
+  "01": {
+   "title": "Page report history by scheduled time",
+   "expected": "real defect: cursor drops id tiebreak",
+   "greptile": "CORRECT (+perf suggestion, excluded)",
+   "proofline": "CORRECT",
+   "coderabbit": "quota warning only, no review",
+   "impact_gate": "not_applicable"
+  },
+  "02": {
+   "title": "Stream the report export",
+   "expected": "real defect: CSV escaping dropped",
+   "greptile": "CORRECT",
+   "proofline": "CORRECT",
+   "coderabbit": "quota warning only, no review",
+   "impact_gate": "not_applicable"
+  },
+  "03": {
+   "title": "Batch queued deliveries",
+   "expected": "real defect: loop drops remainder",
+   "greptile": "CORRECT",
+   "proofline": "CORRECT",
+   "coderabbit": "quota warning only, no review",
+   "impact_gate": "not_applicable"
+  },
+  "04": {
+   "title": "Retire the legacy delivery column",
+   "expected": "context finding [snapshot]; code-only quiet allowed",
+   "greptile": "quiet (allowed)",
+   "proofline": "quiet (allowed)",
+   "coderabbit": "quota warning only, no review",
+   "impact_gate": "not_applicable"
+  },
+  "05": {
+   "title": "Increase export batch size",
+   "expected": "clean",
+   "greptile": "quiet (correct)",
+   "proofline": "quiet (correct)",
+   "coderabbit": "quota warning only, no review",
+   "impact_gate": "not_applicable"
+  },
+  "06": {
+   "title": "Use the new delivery queue",
+   "expected": "real defect: pending rows stranded in old queue",
+   "greptile": "PARTIAL (doc-fix framing)",
+   "proofline": "PARTIAL (doc-drift framing)",
+   "coderabbit": "quota warning only, no review",
+   "impact_gate": "not_applicable"
+  },
+  "07": {
+   "title": "Index pending deliveries",
+   "expected": "clean",
+   "greptile": "quiet (correct)",
+   "proofline": "quiet (correct)",
+   "coderabbit": "quota warning only, no review",
+   "impact_gate": "not_applicable"
+  },
+  "08": {
+   "title": "Include a total in the activity summary",
+   "expected": "clean",
+   "greptile": "quiet (correct)",
+   "proofline": "quiet (correct)",
+   "coderabbit": "quota warning only, no review",
+   "impact_gate": "not_applicable"
+  }
+ },
+ "coverage": {
+  "greptile": "8/8 reviewed, first complete review scored",
+  "proofline": "8/8 reviewed (console states); GitHub comment only when findings",
+  "coderabbit": "8/8 attempts, terminal status quota_stop-equivalent (limit reached notice, no substantive review) - coverage status not a zero",
+  "impact_gate": "8/8 not_applicable (predeclared); separately: org webhook deliveries failed to connect to host, live evidence 16:36"
+ },
+ "aws": {
+  "local_package_smoke": "PASS commit 79d0377, request_id local-smoke, delivered 1 pending 0",
+  "deploy": "pending user MFA code for console sign-in"
+ }
+}

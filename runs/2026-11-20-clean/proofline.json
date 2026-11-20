@@ -1,0 +1,86 @@
+[
+ {
+  "provider": "proofline",
+  "case": "01",
+  "pr": 9,
+  "url": "https://github.com/abhinavs1920/run-proofline/pull/9",
+  "github_comment": {
+   "t": "2026-11-20T11:10:54Z",
+   "txt": "Proofline has 1 finding to review in this pull request.\n\nView full review in Proofline"
+  },
+  "console_review_url": "https://proofline.sh/orgs/by-id/01a1f87f-237c-732a-bf94-dc9224042da4/reviews/01a1f8a6-126a-7193-a33e-b30327be603c",
+  "console_page_text": "Skip to content\nabhinavs1920\nSearch\nCtrl K\nabhinavs1920\n\nReviews\n\nAll reviews\nPull requests\nReview requests\nYour reviews\nNotifications\nAbhinav Sharma\nReviews\n/\nrun-proofline\n/\nPR #9\n/\nRun 1\nPage report history by scheduled time\nAbhinav Sharma\nrun-proofline #9\nOverview\nChanges\nWalkthrough\nDetails\n1 warning to address\nReview published to the pull request.\nreports.py:42\u201350\nOther sources\n\nLoading\n\nProofline\nWarning \u00b7 Logic\nhistory orders by scheduled_at and id, but its cursor and boundary use only scheduled_at, excluding remaining rows tied with the last returned row.\nImpact\nRecommended action\nAssessment\nConfirm\nDismiss\nMark fixed\nAccept risk\nConfirm records that the finding is valid and keeps it open in later reviews of this pull request and eligible to block a future merge-gate decision, without changing the GitHub thread or an already decided gate.Dismiss records that you reject the finding, removes it from open findings for future merge-gate decisions and quiets repeat comments on unchanged code in this pull request, without changing its GitHub thread or an already decided gate.Mark fixed records your assessment that the finding is fixed and removes it from open findings for future merge-gate decisions until a later review finds it again, without verifying the fix, changing its GitHub thread or revising an already decided gate.Accept risk records that you accept the finding without fixing it, removes it from open findings for future merge-gate decisions and quiets repeat comments on unchanged code in this pull request, without changing its GitHub thread or an already decided gate.\nAbout these actions\nRerun review\nCompleted\n11 minutes ago\nReview duration:\n1m 0s\nRuns\nRun\n1\nb422577\n11 minutes ago"
+ },
+ {
+  "provider": "proofline",
+  "case": "02",
+  "pr": 10,
+  "url": "https://github.com/abhinavs1920/run-proofline/pull/10",
+  "github_comment": {
+   "t": "2026-11-20T11:10:59Z",
+   "txt": "Proofline has 1 finding to review in this pull request.\n\nView full review in Proofline"
+  },
+  "console_review_url": "https://proofline.sh/orgs/by-id/01a1f87f-237c-732a-bf94-dc9224042da4/reviews/01a1f8a6-1789-76b4-aeb0-4a5ac2564321",
+  "console_page_text": "Skip to content\nabhinavs1920\nSearch\nCtrl K\nabhinavs1920\n\nReviews\n\nAll reviews\nPull requests\nReview requests\nYour reviews\nNotifications\nAbhinav Sharma\nReviews\n/\nrun-proofline\n/\nPR #10\n/\nRun 1\nStream the report export\nAbhinav Sharma\nrun-proofline #10\nOverview\nChanges\nWalkthrough\nDetails\n1 warning to address\nReview published to the pull request.\nreports.py:52\u201356\nOther sources\n52\ndef write_export(db, output):\n53\n    output.write(\"id,report,scheduled_at\\n\")\n54\n    rows = db.execute(\"SELECT id, report, scheduled_at FROM deliveries ORDER BY id\")\n55\n    for row in rows:\nProofline\nWarning \u00b7 Logic\nwrite_export joins raw fields instead of CSV-quoting them, although report names can contain commas, quotes, or newlines.\nImpact\nRecommended action\nAssessment\nConfirm\nDismiss\nMark fixed\nAccept risk\nConfirm records that the finding is valid and keeps it open in later reviews of this pull request and eligible to block a future merge-gate decision, without changing the GitHub thread or an already decided gate.Dismiss records that you reject the finding, removes it from open findings for future merge-gate decisions and quiets repeat comments on unchanged code in this pull request, without changing its GitHub thread or an already decided gate.Mark fixed records your assessment that the finding is fixed and removes it from open findings for future merge-gate decisions until a later review finds it again, without verifying the fix, changing its GitHub thread or revising an already decided gate.Accept risk records that you accept the finding without fixing it, removes it from open findings for future merge-gate decisions and quiets repeat comments on unchanged code in this pull request, without changing its GitHub thread or an already decided gate.\nAbout these actions\nRerun review\nCompleted\n11 minutes ago\nReview duration:\n1m 3s\nRuns\nRun\n1\n9d551b8\n11 minutes ago"
+ },
+ {
+  "provider": "proofline",
+  "case": "03",
+  "pr": 11,
+  "url": "https://github.com/abhinavs1920/run-proofline/pull/11",
+  "github_comment": {
+   "t": "2026-11-20T11:10:54Z",
+   "txt": "Proofline has 1 finding to review in this pull request.\n\nView full review in Proofline"
+  },
+  "console_review_url": "https://proofline.sh/orgs/by-id/01a1f87f-237c-732a-bf94-dc9224042da4/reviews/01a1f8a6-1cef-76e5-b941-6a267485685e",
+  "console_page_text": "Skip to content\nabhinavs1920\nSearch\nCtrl K\nabhinavs1920\n\nReviews\n\nAll reviews\nPull requests\nReview requests\nYour reviews\nNotifications\nAbhinav Sharma\nReviews\n/\nrun-proofline\n/\nPR #11\n/\nRun 1\nBatch queued deliveries\nAbhinav Sharma\nrun-proofline #11\nOverview\nChanges\nWalkthrough\nDetails\n1 warning to address\nReview published to the pull request.\nreports.py:71\u201389\nOther sources\n\nLoading\n\nProofline\nWarning \u00b7 Logic\ndeliver_due iterates only complete batches of twenty, skipping every trailing partial batch.\nImpact\nRecommended action\nAssessment\nConfirm\nDismiss\nMark fixed\nAccept risk\nConfirm records that the finding is valid and keeps it open in later reviews of this pull request and eligible to block a future merge-gate decision, without changing the GitHub thread or an already decided gate.Dismiss records that you reject the finding, removes it from open findings for future merge-gate decisions and quiets repeat comments on unchanged code in this pull request, without changing its GitHub thread or an already decided gate.Mark fixed records your assessment that the finding is fixed and removes it from open findings for future merge-gate decisions until a later review finds it again, without verifying the fix, changing its GitHub thread or revising an already decided gate.Accept risk records that you accept the finding without fixing it, removes it from open findings for future merge-gate decisions and quiets repeat comments on unchanged code in this pull request, without changing its GitHub thread or an already decided gate.\nAbout these actions\nRerun review\nCompleted\n11 minutes ago\nReview duration:\n0m 57s\nRuns\nRun\n1\n6cca1e9\n11 minutes ago"
+ },
+ {
+  "provider": "proofline",
+  "case": "04",
+  "pr": 12,
+  "url": "https://github.com/abhinavs1920/run-proofline/pull/12",
+  "console_state": "no findings",
+  "github_comment": null,
+  "note": "Completed zero-finding review; Proofline posts a GitHub comment only when a review has findings. State read from the console All reviews list at 2026-11-20 16:52 IST."
+ },
+ {
+  "provider": "proofline",
+  "case": "05",
+  "pr": 13,
+  "url": "https://github.com/abhinavs1920/run-proofline/pull/13",
+  "console_state": "no findings",
+  "github_comment": null,
+  "note": "Completed zero-finding review; Proofline posts a GitHub comment only when a review has findings. State read from the console All reviews list at 2026-11-20 16:52 IST."
+ },
+ {
+  "provider": "proofline",
+  "case": "06",
+  "pr": 14,
+  "url": "https://github.com/abhinavs1920/run-proofline/pull/14",
+  "github_comment": {
+   "t": "2026-11-20T11:10:57Z",
+   "txt": "Proofline has 1 finding to review in this pull request.\n\nView full review in Proofline"
+  },
+  "console_review_url": "https://proofline.sh/orgs/by-id/01a1f87f-237c-732a-bf94-dc9224042da4/reviews/01a1f8a6-2e64-72f4-b372-c04aa42acf01",
+  "console_page_text": "Skip to content\nabhinavs1920\nSearch\nCtrl K\nabhinavs1920\n\nReviews\n\nAll reviews\nPull requests\nReview requests\nYour reviews\nNotifications\nAbhinav Sharma\nReviews\n/\nrun-proofline\n/\nPR #14\n/\nRun 1\nUse the new delivery queue\nAbhinav Sharma\nrun-proofline #14\nOverview\nChanges\nWalkthrough\nDetails\n1 warning to address\nReview published to the pull request.\nreports.py:9\nOther sources\n\nLoading\n\nProofline\nWarning \u00b7 Doc drift\nDELIVERY_QUEUE now stores report-dispatch, but README.md still invokes the worker with --queue reports; deliver_due filters by exact queue equality.\nImpact\nRecommended action\nAssessment\nConfirm\nDismiss\nMark fixed\nAccept risk\nConfirm records that the finding is valid and keeps it open in later reviews of this pull request and eligible to block a future merge-gate decision, without changing the GitHub thread or an already decided gate.Dismiss records that you reject the finding, removes it from open findings for future merge-gate decisions and quiets repeat comments on unchanged code in this pull request, without changing its GitHub thread or an already decided gate.Mark fixed records your assessment that the finding is fixed and removes it from open findings for future merge-gate decisions until a later review finds it again, without verifying the fix, changing its GitHub thread or revising an already decided gate.Accept risk records that you accept the finding without fixing it, removes it from open findings for future merge-gate decisions and quiets repeat comments on unchanged code in this pull request, without changing its GitHub thread or an already decided gate.\nAbout these actions\nRerun review\nCompleted\n11 minutes ago\nReview duration:\n0m 55s\nRuns\nRun\n1\nfcb0c2a\n11 minutes ago"
+ },
+ {
+  "provider": "proofline",
+  "case": "07",
+  "pr": 15,
+  "url": "https://github.com/abhinavs1920/run-proofline/pull/15",
+  "console_state": "no findings",
+  "github_comment": null,
+  "note": "Completed zero-finding review; Proofline posts a GitHub comment only when a review has findings. State read from the console All reviews list at 2026-11-20 16:52 IST."
+ },
+ {
+  "provider": "proofline",
+  "case": "08",
+  "pr": 16,
+  "url": "https://github.com/abhinavs1920/run-proofline/pull/16",
+  "console_state": "no findings",
+  "github_comment": null,
+  "note": "Completed zero-finding review; Proofline posts a GitHub comment only when a review has findings. State read from the console All reviews list at 2026-11-20 16:52 IST."
+ }
+]

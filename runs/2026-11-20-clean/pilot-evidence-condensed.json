@@ -1,0 +1,310 @@
+[
+ {
+  "repo": "abhinavs1920/run-greptile",
+  "pr": "1",
+  "timeline": [
+   "abhinavs1920: Show the most recently scheduled deliveries first. The console continues to return an opaque cursor for fetching the next page. Summary by CodeRabbit Bug Fixes Delivery history is now ordered by scheduled time, with cons",
+   "?: ",
+   "coderabbitai: Walkthrough Autofix \u00b7 Keep fixing CodeRabbit findings and required CI, and resolving merge conflicts Note Summarized by CodeRabbit Free Recent review info",
+   "greptile-apps: Confidence Score: 4/5 [Medium impact] The change affects the report-history paging workflow in the operations console. Fix the skipped deliveries before merging; adding an index would also keep history fast as it grows. ",
+   "greptile-apps: ",
+   "reports.py:  Pages skip same-time deliveries. The cursor keeps only scheduled_at, but multiple reports can share that time. With three deliveries at time 100 and a page size of two, the first page returns two rows and cursor 100. Th"
+  ]
+ },
+ {
+  "repo": "abhinavs1920/run-greptile",
+  "pr": "2",
+  "timeline": [
+   "abhinavs1920: Write each delivery to the CSV output as it is read from the database so a large export can start immediately.",
+   "?: ",
+   "coderabbitai: Warning Review limit reached Enable usage-based reviews in Billing to review now. Otherwise, wait until the next included review is available. You're only billed for reviews past your plan's rate limits ($0.25/file). Nex",
+   "greptile-apps: Confidence Score: 4/5 [Low impact] The change affects only the operator's CSV export command. Restore CSV quoting before merging; rows can still be written as they are read. Findings Report names break CSV \u25b6 Summary The ",
+   "greptile-apps: ",
+   "reports.py:  Report names break CSV. A valid report name such as Weekly orders, EU now produces four fields under a three-column header. Names containing newlines can also become extra records because this write no longer quotes fie"
+  ]
+ },
+ {
+  "repo": "abhinavs1920/run-greptile",
+  "pr": "3",
+  "timeline": [
+   "abhinavs1920: Group receipt inserts and delivery updates into batches of twenty to reduce statement setup overhead on busy queues.",
+   "?: ",
+   "coderabbitai: Warning Review limit reached Enable usage-based reviews in Billing to review now. Otherwise, wait until the next included review is available. You're only billed for reviews past your plan's rate limits ($0.25/file). Nex",
+   "greptile-apps: Confidence Score: 4/5 [Medium impact] The change reaches the report-delivery worker. Fix the loop bounds before merging so every due report gets delivered. Findings Small batches never get delivered \u25b6 Summary Groups rece",
+   "greptile-apps: ",
+   "reports.py:  Small batches never get delivered. The loop only visits complete groups of twenty. With 1\u201319 due jobs, deliver_due returns zero without delivering anything; with 25, it delivers twenty and leaves five pending. Repeating"
+  ]
+ },
+ {
+  "repo": "abhinavs1920/run-greptile",
+  "pr": "4",
+  "timeline": [
+   "abhinavs1920: Remove the legacy report format column from the deliveries table. New exports use the CSV writer.",
+   "?: ",
+   "coderabbitai: Warning Review limit reached Enable usage-based reviews in Billing to review now. Otherwise, wait until the next included review is available. You're only billed for reviews past your plan's rate limits ($0.25/file). Nex",
+   "greptile-apps: Confidence Score: 5/5 [Low impact] The change appears safe to merge. Summary Removes the unused delivery format column from the database. Deliveries no longer store a legacy format choice. No actionable issues found. Rev"
+  ]
+ },
+ {
+  "repo": "abhinavs1920/run-proofline",
+  "pr": "1",
+  "timeline": [
+   "abhinavs1920: Show the most recently scheduled deliveries first. The console continues to return an opaque cursor for fetching the next page.",
+   "?: ",
+   "coderabbitai: Warning Review limit reached Enable usage-based reviews in Billing to review now. Otherwise, wait until the next included review is available. You're only billed for reviews past your plan's rate limits ($0.25/file). Nex",
+   "prooflinedev: ",
+   "prooflinedev: Proofline has 1 finding to review in this pull request. View full review in Proofline",
+   "reports.py: Warning \u00b7 History pagination skips deliveries sharing a page-boundary timestamp history orders ties by id but stores only scheduled_at in its cursor; the next page excludes remaining rows with that timestamp. Browsing hi"
+  ]
+ },
+ {
+  "repo": "abhinavs1920/run-proofline",
+  "pr": "2",
+  "timeline": [
+   "abhinavs1920: Write each delivery to the CSV output as it is read from the database so a large export can start immediately.",
+   "?: ",
+   "coderabbitai: Warning Review limit reached Enable usage-based reviews in Billing to review now. Otherwise, wait until the next included review is available. You're only billed for reviews past your plan's rate limits ($0.25/file). Nex",
+   "prooflinedev: ",
+   "prooflinedev: Proofline has 1 finding to review in this pull request. View full review in Proofline",
+   "reports.py: Warning \u00b7 Report names containing commas or newlines break CSV exports write_export joins fields without CSV escaping, so valid report names such as Sales, weekly produce extra fields or records. The export command no lo"
+  ]
+ },
+ {
+  "repo": "abhinavs1920/run-proofline",
+  "pr": "3",
+  "timeline": [
+   "abhinavs1920: Group receipt inserts and delivery updates into batches of twenty to reduce statement setup overhead on busy queues.",
+   "?: ",
+   "coderabbitai: Warning Review limit reached Enable usage-based reviews in Billing to review now. Otherwise, wait until the next included review is available. You're only billed for reviews past your plan's rate limits ($0.25/file). Nex",
+   "prooflinedev: ",
+   "prooflinedev: Proofline has 1 finding to review in this pull request. View full review in Proofline",
+   "reports.py: Warning \u00b7 Final partial delivery batch is never processed The loop in deliver_due only visits full batches of twenty, skipping any remaining due jobs. Up to nineteen deliveries remain pending indefinitely when no new job"
+  ]
+ },
+ {
+  "repo": "abhinavs1920/run-proofline",
+  "pr": "4",
+  "timeline": [
+   "abhinavs1920: Remove the legacy report format column from the deliveries table. New exports use the CSV writer.",
+   "?: ",
+   "coderabbitai: Warning Review limit reached Enable usage-based reviews in Billing to review now. Otherwise, wait until the next included review is available. You're only billed for reviews past your plan's rate limits ($0.25/file). Nex"
+  ]
+ },
+ {
+  "repo": "abhinavs1920/run-coderabbit",
+  "pr": "1",
+  "timeline": [
+   "abhinavs1920: Show the most recently scheduled deliveries first. The console continues to return an opaque cursor for fetching the next page.",
+   "?: ",
+   "coderabbitai: Warning Review limit reached Enable usage-based reviews in Billing to review now. Otherwise, wait until the next included review is available. You're only billed for reviews past your plan's rate limits ($0.25/file). Nex"
+  ]
+ },
+ {
+  "repo": "abhinavs1920/run-coderabbit",
+  "pr": "2",
+  "timeline": [
+   "abhinavs1920: Write each delivery to the CSV output as it is read from the database so a large export can start immediately.",
+   "?: ",
+   "coderabbitai: Warning Review limit reached Enable usage-based reviews in Billing to review now. Otherwise, wait until the next included review is available. You're only billed for reviews past your plan's rate limits ($0.25/file). Nex"
+  ]
+ },
+ {
+  "repo": "abhinavs1920/run-coderabbit",
+  "pr": "3",
+  "timeline": [
+   "abhinavs1920: Group receipt inserts and delivery updates into batches of twenty to reduce statement setup overhead on busy queues.",
+   "?: ",
+   "coderabbitai: Warning Review limit reached Enable usage-based reviews in Billing to review now. Otherwise, wait until the next included review is available. You're only billed for reviews past your plan's rate limits ($0.25/file). Nex"
+  ]
+ },
+ {
+  "repo": "abhinavs1920/run-coderabbit",
+  "pr": "4",
+  "timeline": [
+   "abhinavs1920: Remove the legacy report format column from the deliveries table. New exports use the CSV writer.",
+   "?: ",
+   "coderabbitai: Warning Review limit reached Enable usage-based reviews in Billing to review now. Otherwise, wait until the next included review is available. You're only billed for reviews past your plan's rate limits ($0.25/file). Nex"
+  ]
+ },
+ {
+  "repo": "abhinavs1920/run-greptile",
+  "pr": "5",
+  "timeline": [
+   "abhinavs1920: Group up to fifty records per archive request to reduce the number of calls for a full export.",
+   "?: ",
+   "coderabbitai: Warning Review limit reached Enable usage-based reviews in Billing to review now. Otherwise, wait until the next included review is available. You're only billed for reviews past your plan's rate limits ($0.25/file). Nex",
+   "greptile-apps: Confidence Score: 5/5 [Low impact] This change appears safe to merge. Summary Archive exports now group up to 50 records per request instead of 25, reducing calls for larger exports. Archive requests can carry up to 50 d"
+  ]
+ },
+ {
+  "repo": "abhinavs1920/run-greptile",
+  "pr": "6",
+  "timeline": [
+   "abhinavs1920: Route newly scheduled deliveries to the dedicated dispatch queue. Existing jobs keep their assigned queue.",
+   "?: ",
+   "coderabbitai: Warning Review limit reached Enable usage-based reviews in Billing to review now. Otherwise, wait until the next included review is available. You're only billed for reviews past your plan's rate limits ($0.25/file). Nex",
+   "greptile-apps: Confidence Score: 4/5 [Medium impact] The change reaches the report scheduling and delivery workflow. The code appears safe to merge, with a non-blocking documentation update needed so operators run the right queue. Find",
+   "greptile-apps: ",
+   "reports.py:  Documented worker skips new jobs. README.md still tells operators to run work --queue reports immediately after scheduling a report. New jobs now use report-dispatch, and deliver_due only selects the requested queue, so"
+  ]
+ },
+ {
+  "repo": "abhinavs1920/run-greptile",
+  "pr": "7",
+  "timeline": [
+   "abhinavs1920: Add a partial index for the worker query that selects due jobs by queue and scheduled time.",
+   "?: ",
+   "coderabbitai: Warning Review limit reached Enable usage-based reviews in Billing to review now. Otherwise, wait until the next included review is available. You're only billed for reviews past your plan's rate limits ($0.25/file). Nex",
+   "greptile-apps: Confidence Score: 5/5 [Low impact] This change appears safe to merge. Summary Adds a partial index to speed up finding due, undelivered jobs in a queue. The database indexes pending deliveries by queue and due time. No a"
+  ]
+ },
+ {
+  "repo": "abhinavs1920/run-greptile",
+  "pr": "8",
+  "timeline": [
+   "abhinavs1920: Expose the total number of deliveries in the summary response alongside the pending and delivered counts.",
+   "?: ",
+   "coderabbitai: Warning Review limit reached Enable usage-based reviews in Billing to review now. Otherwise, wait until the next included review is available. You're only billed for reviews past your plan's rate limits ($0.25/file). Nex",
+   "greptile-apps: Confidence Score: 5/5 [Low impact] This change appears safe to merge. Summary The activity summary now includes the total number of deliveries alongside the delivered and pending counts. The activity summary now includes"
+  ]
+ },
+ {
+  "repo": "abhinavs1920/run-proofline",
+  "pr": "5",
+  "timeline": [
+   "abhinavs1920: Group up to fifty records per archive request to reduce the number of calls for a full export.",
+   "?: ",
+   "coderabbitai: Warning Review limit reached Enable usage-based reviews in Billing to review now. Otherwise, wait until the next included review is available. You're only billed for reviews past your plan's rate limits ($0.25/file). Nex"
+  ]
+ },
+ {
+  "repo": "abhinavs1920/run-proofline",
+  "pr": "6",
+  "timeline": [
+   "abhinavs1920: Route newly scheduled deliveries to the dedicated dispatch queue. Existing jobs keep their assigned queue.",
+   "?: ",
+   "coderabbitai: Warning Review limit reached Enable usage-based reviews in Billing to review now. Otherwise, wait until the next included review is available. You're only billed for reviews past your plan's rate limits ($0.25/file). Nex",
+   "prooflinedev: ",
+   "prooflinedev: Proofline has 1 finding to review in this pull request. View full review in Proofline",
+   "reports.py: Warning \u00b7 README worker command no longer delivers the scheduled report New deliveries use report-dispatch, but the workflow in README.md still runs work --queue reports; the queue equality filter excludes the preceding "
+  ]
+ },
+ {
+  "repo": "abhinavs1920/run-proofline",
+  "pr": "7",
+  "timeline": [
+   "abhinavs1920: Add a partial index for the worker query that selects due jobs by queue and scheduled time.",
+   "?: ",
+   "coderabbitai: Warning Review limit reached Enable usage-based reviews in Billing to review now. Otherwise, wait until the next included review is available. You're only billed for reviews past your plan's rate limits ($0.25/file). Nex"
+  ]
+ },
+ {
+  "repo": "abhinavs1920/run-proofline",
+  "pr": "8",
+  "timeline": [
+   "abhinavs1920: Expose the total number of deliveries in the summary response alongside the pending and delivered counts.",
+   "?: ",
+   "coderabbitai: Warning Review limit reached Enable usage-based reviews in Billing to review now. Otherwise, wait until the next included review is available. You're only billed for reviews past your plan's rate limits ($0.25/file). Nex"
+  ]
+ },
+ {
+  "repo": "abhinavs1920/run-coderabbit",
+  "pr": "5",
+  "timeline": [
+   "abhinavs1920: Group up to fifty records per archive request to reduce the number of calls for a full export.",
+   "?: ",
+   "coderabbitai: Warning Review limit reached Enable usage-based reviews in Billing to review now. Otherwise, wait until the next included review is available. You're only billed for reviews past your plan's rate limits ($0.25/file). Nex"
+  ]
+ },
+ {
+  "repo": "abhinavs1920/run-coderabbit",
+  "pr": "6",
+  "timeline": [
+   "abhinavs1920: Route newly scheduled deliveries to the dedicated dispatch queue. Existing jobs keep their assigned queue.",
+   "?: ",
+   "coderabbitai: Warning Review limit reached Enable usage-based reviews in Billing to review now. Otherwise, wait until the next included review is available. You're only billed for reviews past your plan's rate limits ($0.25/file). Nex"
+  ]
+ },
+ {
+  "repo": "abhinavs1920/run-coderabbit",
+  "pr": "7",
+  "timeline": [
+   "abhinavs1920: Add a partial index for the worker query that selects due jobs by queue and scheduled time.",
+   "?: ",
+   "coderabbitai: Warning Review limit reached Enable usage-based reviews in Billing to review now. Otherwise, wait until the next included review is available. You're only billed for reviews past your plan's rate limits ($0.25/file). Nex"
+  ]
+ },
+ {
+  "repo": "abhinavs1920/run-coderabbit",
+  "pr": "8",
+  "timeline": [
+   "abhinavs1920: Expose the total number of deliveries in the summary response alongside the pending and delivered counts.",
+   "?: ",
+   "coderabbitai: Warning Review limit reached Enable usage-based reviews in Billing to review now. Otherwise, wait until the next included review is available. You're only billed for reviews past your plan's rate limits ($0.25/file). Nex"
+  ]
+ },
+ {
+  "repo": "impact-gate/run-impactgate",
+  "pr": "1",
+  "timeline": [
+   "abhinavs1920: Show the most recently scheduled deliveries first. The console continues to return an opaque cursor for fetching the next page.",
+   "?: "
+  ]
+ },
+ {
+  "repo": "impact-gate/run-impactgate",
+  "pr": "2",
+  "timeline": [
+   "abhinavs1920: Write each delivery to the CSV output as it is read from the database so a large export can start immediately.",
+   "?: "
+  ]
+ },
+ {
+  "repo": "impact-gate/run-impactgate",
+  "pr": "3",
+  "timeline": [
+   "abhinavs1920: Group receipt inserts and delivery updates into batches of twenty to reduce statement setup overhead on busy queues.",
+   "?: "
+  ]
+ },
+ {
+  "repo": "impact-gate/run-impactgate",
+  "pr": "4",
+  "timeline": [
+   "abhinavs1920: Remove the legacy report format column from the deliveries table. New exports use the CSV writer.",
+   "?: "
+  ]
+ },
+ {
+  "repo": "impact-gate/run-impactgate",
+  "pr": "5",
+  "timeline": [
+   "abhinavs1920: Group up to fifty records per archive request to reduce the number of calls for a full export.",
+   "?: "
+  ]
+ },
+ {
+  "repo": "impact-gate/run-impactgate",
+  "pr": "6",
+  "timeline": [
+   "abhinavs1920: Route newly scheduled deliveries to the dedicated dispatch queue. Existing jobs keep their assigned queue.",
+   "?: "
+  ]
+ },
+ {
+  "repo": "impact-gate/run-impactgate",
+  "pr": "7",
+  "timeline": [
+   "abhinavs1920: Add a partial index for the worker query that selects due jobs by queue and scheduled time.",
+   "?: "
+  ]
+ },
+ {
+  "repo": "impact-gate/run-impactgate",
+  "pr": "8",
+  "timeline": [
+   "abhinavs1920: Expose the total number of deliveries in the summary response alongside the pending and delivered counts.",
+   "?: "
+  ]
+ }
+]

@@ -1,0 +1,98 @@
+[
+ {
+  "provider": "greptile",
+  "case": "01",
+  "pr": 9,
+  "url": "https://github.com/abhinavs1920/run-greptile/pull/9",
+  "posted_at": "2026-11-20T11:11:19Z",
+  "comment": "Confidence Score: 4/5\n\n[Medium impact] The change affects the operator's paged report-history workflow.\n\nFix the skipped deliveries before merging; adding a supporting index would also prevent slower history pages.\n\nFindings\n\u00a0Pages skip same-time deliveries \u25b6\n\u00a0History lacks a supporting index \u25b6\nSummary\n\nReport history now shows later scheduled deliveries first, with id breaking ties.\n\nReport history lists the latest scheduled deliveries first.\n\nReviews (1) \u00b7 Last reviewed commit: \"Page report history by scheduled time\" \u00b7 Reviewed by Greptile"
+ },
+ {
+  "provider": "greptile",
+  "case": "01",
+  "pr": 9,
+  "url": "https://github.com/abhinavs1920/run-greptile/pull/9",
+  "posted_at": "2026-11-20T11:11:23Z",
+  "comment": "Pages skip same-time deliveries. When a page ends among deliveries sharing one scheduled_at, the next cursor contains only that timestamp. The strict < filter then excludes every remaining delivery at that time. For example, three deliveries at the same second with limit=2 return two rows, then an empty page. Shared timestamps are explicitly supported. Keep both scheduled_at and id in the cursor position and compare both when fetching the next page."
+ },
+ {
+  "provider": "greptile",
+  "case": "02",
+  "pr": 10,
+  "url": "https://github.com/abhinavs1920/run-greptile/pull/10",
+  "posted_at": "2026-11-20T11:11:08Z",
+  "comment": "Confidence Score: 4/5\n\n[Low impact] The change reaches only the report export workflow.\n\nRestore CSV quoting before merging so exports preserve each delivery.\n\nFindings\n\u00a0Report names break CSV output \u25b6\nSummary\n\nThe PR streams delivery rows from the database into the export instead of loading them all first.\n\nExports write each delivery as the database returns it.\n\nReviews (1) \u00b7 Last reviewed commit: \"Stream the report export\" \u00b7 Reviewed by Greptile"
+ },
+ {
+  "provider": "greptile",
+  "case": "02",
+  "pr": 10,
+  "url": "https://github.com/abhinavs1920/run-greptile/pull/10",
+  "posted_at": "2026-11-20T11:11:12Z",
+  "comment": "Report names break CSV output. Report names accept free-form text, so a name such as Weekly orders, Europe reaches this line unchanged. Joining values with commas writes four fields under a three-column header; embedded newlines can also turn one delivery into several records. Keep csv.writer and writer.writerow(row) while iterating the database cursor. Streaming does not require removing CSV quoting."
+ },
+ {
+  "provider": "greptile",
+  "case": "03",
+  "pr": 11,
+  "url": "https://github.com/abhinavs1920/run-greptile/pull/11",
+  "posted_at": "2026-11-20T11:11:18Z",
+  "comment": "Confidence Score: 4/5\n\n[Medium impact] The change affects queue worker runs and the delivery records they update.\n\nFix the loop bounds before merging so every due job gets processed.\n\nFindings\n\u00a0Small batches never get delivered \u25b6\nSummary\n\nThe PR batches receipt inserts and delivery updates in groups of twenty. It needs one fix before merging: the loop skips every final group smaller than twenty.\n\nThe report worker handles due jobs in groups of 20.\n\nReviews (1) \u00b7 Last reviewed commit: \"Batch queued deliveries\" \u00b7 Reviewed by Greptile"
+ },
+ {
+  "provider": "greptile",
+  "case": "03",
+  "pr": 11,
+  "url": "https://github.com/abhinavs1920/run-greptile/pull/11",
+  "posted_at": "2026-11-20T11:11:22Z",
+  "comment": "Small batches never get delivered. The loop stops at len(jobs) - batch_size + 1, so it only visits full groups of twenty. With 19 due jobs, deliver_due returns zero without writing anything; with 21, it delivers twenty and leaves one pending. Repeated calls cannot clear the remaining jobs unless more arrive. Use range(0, len(jobs), batch_size) so the final slice is processed too."
+ },
+ {
+  "provider": "greptile",
+  "case": "04",
+  "pr": 12,
+  "url": "https://github.com/abhinavs1920/run-greptile/pull/12",
+  "posted_at": "2026-11-20T11:11:08Z",
+  "comment": "Confidence Score: 5/5\n\n[Medium impact] The change appears safe to merge.\n\nSummary\n\nAdds a migration that removes the unused legacy_format column from deliveries.\n\nThe deliveries table no longer stores a legacy format choice.\n\nNo actionable issues found.\n\nReviews (1) \u00b7 Last reviewed commit: \"Retire the legacy delivery column\" \u00b7 Reviewed by Greptile"
+ },
+ {
+  "provider": "greptile",
+  "case": "05",
+  "pr": 13,
+  "url": "https://github.com/abhinavs1920/run-greptile/pull/13",
+  "posted_at": "2026-11-20T11:10:52Z",
+  "comment": "Confidence Score: 5/5\n\n[Low impact] The PR appears safe to merge.\n\nSummary\n\nThe PR raises archive batches from 25 to 50 records to reduce requests.\n\nArchive requests now carry up to 50 delivery records.\n\nReviews (1) \u00b7 Last reviewed commit: \"Increase export batch size\" \u00b7 Reviewed by Greptile"
+ },
+ {
+  "provider": "greptile",
+  "case": "06",
+  "pr": 14,
+  "url": "https://github.com/abhinavs1920/run-greptile/pull/14",
+  "posted_at": "2026-11-20T11:11:07Z",
+  "comment": "Confidence Score: 4/5\n\n[Medium impact] The change affects the report scheduling and delivery workflow.\n\nThe code appears safe to merge, with a non-blocking update needed to the worker instructions.\n\nFindings\n\u00a0Worker example misses new jobs \u25b6\nSummary\n\nNewly scheduled deliveries now use report-dispatch. Existing jobs keep their saved queue.\n\nNew report deliveries go to the dedicated dispatch queue.\n\nReviews (1) \u00b7 Last reviewed commit: \"Use the new delivery queue\" \u00b7 Reviewed by Greptile"
+ },
+ {
+  "provider": "greptile",
+  "case": "06",
+  "pr": 14,
+  "url": "https://github.com/abhinavs1920/run-greptile/pull/14",
+  "posted_at": "2026-11-20T11:11:12Z",
+  "comment": "Worker example misses new jobs. The README still tells operators to run work --queue reports. After this change, that command skips newly scheduled jobs because deliver_due matches the queue exactly. Update the example to run report-dispatch, and explain that operators should also drain reports for existing jobs."
+ },
+ {
+  "provider": "greptile",
+  "case": "07",
+  "pr": 15,
+  "url": "https://github.com/abhinavs1920/run-greptile/pull/15",
+  "posted_at": "2026-11-20T11:11:07Z",
+  "comment": "Confidence Score: 5/5\n\n[Low impact] This PR appears safe to merge.\n\nSummary\n\nAdds a partial index to speed up the worker\u2019s search for due deliveries.\n\nThe report worker\u2019s due-job lookup gets a matching index.\n\nReviews (1) \u00b7 Last reviewed commit: \"Index pending deliveries\" \u00b7 Reviewed by Greptile"
+ },
+ {
+  "provider": "greptile",
+  "case": "08",
+  "pr": 16,
+  "url": "https://github.com/abhinavs1920/run-greptile/pull/16",
+  "posted_at": "2026-11-20T11:10:48Z",
+  "comment": "Confidence Score: 5/5\n\n[Low impact] This change appears safe to merge.\n\nSummary\n\nAdds total to the activity summary alongside delivered and pending.\n\nThe activity summary now includes the total delivery count.\n\nReviews (1) \u00b7 Last reviewed commit: \"Include a total in the activity summary\" \u00b7 Reviewed by Greptile"
+ }
+]
