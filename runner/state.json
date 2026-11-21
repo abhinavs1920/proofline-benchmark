@@ -1,0 +1,11 @@
+{
+  "run": "clean rerun 2026-11-20",
+  "note": "one record per (provider, case). completed = raw output stored under runs/2026-11-20-clean/; quota_stop = provider quota warning, not scored; not_applicable = provider not in this run's scope (private-repo app boundary)",
+  "pairs": {
+    "greptile":     {"01": "completed", "02": "completed", "03": "completed", "04": "completed", "05": "completed", "06": "completed", "07": "completed", "08": "completed"},
+    "proofline":    {"01": "completed", "02": "completed", "03": "completed", "04": "completed", "05": "completed", "06": "completed", "07": "completed", "08": "completed"},
+    "coderabbit":   {"01": "quota_stop", "02": "quota_stop", "03": "quota_stop", "04": "quota_stop", "05": "quota_stop", "06": "quota_stop", "07": "quota_stop", "08": "quota_stop"},
+    "impact_gate":  {"01": "not_applicable", "02": "not_applicable", "03": "not_applicable", "04": "not_applicable", "05": "not_applicable", "06": "not_applicable", "07": "not_applicable", "08": "not_applicable"}
+  },
+  "raw": {"greptile": "runs/2026-11-20-clean/greptile.json", "proofline": "runs/2026-11-20-clean/proofline.json", "coderabbit": "runs/2026-11-20-clean/coderabbit.json"}
+}

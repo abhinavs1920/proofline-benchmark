@@ -1,0 +1,50 @@
+{
+ "01": {
+  "greptile": "CORRECT",
+  "proofline": "CORRECT",
+  "coderabbit": "quota_stop",
+  "impact_gate": "not_applicable"
+ },
+ "02": {
+  "greptile": "CORRECT",
+  "proofline": "CORRECT",
+  "coderabbit": "quota_stop",
+  "impact_gate": "not_applicable"
+ },
+ "03": {
+  "greptile": "CORRECT",
+  "proofline": "CORRECT",
+  "coderabbit": "quota_stop",
+  "impact_gate": "not_applicable"
+ },
+ "04": {
+  "greptile": "quiet (allowed)",
+  "proofline": "quiet (allowed)",
+  "coderabbit": "quota_stop",
+  "impact_gate": "not_applicable"
+ },
+ "05": {
+  "greptile": "quiet (correct)",
+  "proofline": "quiet (correct)",
+  "coderabbit": "quota_stop",
+  "impact_gate": "not_applicable"
+ },
+ "06": {
+  "greptile": "PARTIAL (doc framing)",
+  "proofline": "PARTIAL (doc framing)",
+  "coderabbit": "quota_stop",
+  "impact_gate": "not_applicable"
+ },
+ "07": {
+  "greptile": "quiet (correct)",
+  "proofline": "quiet (correct)",
+  "coderabbit": "quota_stop",
+  "impact_gate": "not_applicable"
+ },
+ "08": {
+  "greptile": "quiet (correct)",
+  "proofline": "quiet (correct)",
+  "coderabbit": "quota_stop",
+  "impact_gate": "not_applicable"
+ }
+}

@@ -1,0 +1,69 @@
+{
+ "source": "prooflinedev/ai-review-benchmarks cases/0N/evidence.md + cases/README.md (public assignment starter), as analyzed in the clean rerun 2026-11-20; labels follow runs/2026-11-20-clean/scores.json",
+ "cases": {
+  "01": {
+   "title": "Page report history by scheduled time",
+   "kind": "real_defect",
+   "defect": "cursor drops id tiebreak",
+   "mechanism_terms": [
+    "same-time",
+    "tied",
+    "ties",
+    "tiebreak",
+    "cursor"
+   ]
+  },
+  "02": {
+   "title": "Stream the report export",
+   "kind": "real_defect",
+   "defect": "CSV escaping dropped",
+   "mechanism_terms": [
+    "csv",
+    "escap",
+    "quot"
+   ]
+  },
+  "03": {
+   "title": "Batch queued deliveries",
+   "kind": "real_defect",
+   "defect": "loop drops remainder",
+   "mechanism_terms": [
+    "batch",
+    "trailing",
+    "remainder",
+    "leftover"
+   ]
+  },
+  "04": {
+   "title": "Retire the legacy delivery column",
+   "kind": "allowed_quiet",
+   "defect": "context finding [snapshot]; code-only quiet allowed"
+  },
+  "05": {
+   "title": "Increase export batch size",
+   "kind": "clean",
+   "defect": null
+  },
+  "06": {
+   "title": "Use the new delivery queue",
+   "kind": "real_defect_partial",
+   "defect": "pending rows stranded in old queue; doc-framed findings are partial",
+   "note": "disputed, see runs/2026-11-20-clean/disputed-case-06.md",
+   "mechanism_terms": [
+    "pending",
+    "stranded",
+    "stuck"
+   ]
+  },
+  "07": {
+   "title": "Index pending deliveries",
+   "kind": "clean",
+   "defect": null
+  },
+  "08": {
+   "title": "Include a total in the activity summary",
+   "kind": "clean",
+   "defect": null
+  }
+ }
+}
