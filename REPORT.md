@@ -56,7 +56,7 @@ All three providers flagged case 06 without identifying the seeded data-level de
 - Commit and PR: the `benchmark-runner` branch, PR #1 in this repository.
 - CI: the starter's PR checks ran green on PR open and on the latest synchronize; evidence at the PR checks page: <https://github.com/abhinavs1920/proofline-benchmark/pull/1/checks>.
 - Local deployment smoke: PASS (commit 79d0377).
-- AWS deployment and verified invocation: **not completed as of 08:15 IST, 21 Nov** (console sign-in waiting on my MFA step). No claim is made on that leg. The intended path is the starter's OIDC workflow (.github/workflows/aws.yml, no stored keys): deploy a known revision, verify the delivered report, save the workflow link and receipt, delete the stack. This section gets updated with the run link and receipt when it completes.
+- AWS deployment and verified invocation: **not completed as of 08:12 IST, 21 Nov** (console sign-in waiting on my MFA step). No claim is made on that leg. The intended path is the starter's OIDC workflow (.github/workflows/aws.yml, no stored keys): deploy a known revision, verify the delivered report, save the workflow link and receipt, delete the stack. This section gets updated with the run link and receipt when it completes.
 
 ## One limitation that could change the conclusion
 
