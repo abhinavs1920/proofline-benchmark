@@ -13,7 +13,7 @@ evidence-grounded from the stored raw outputs.
 - `expected.json` - per-case expected outcome kinds plus mechanism_terms,
   derived from the public starter's case evidence
   (prooflinedev/ai-review-benchmarks cases/0N, attributed). Answer-bearing
-  data lives only in this private repo, never in any provider-visible repo.
+  data is recorded here for auditability. The added-case private answer-key file was not pushed. This working repository had pre-existing CodeRabbit all-repositories access, so universal provider isolation is not claimed; see REPORT.md.
 - `score.py` - deterministic classifier. It parses each provider's raw output
   (Greptile review-body Findings section; Proofline console state, GitHub
   comment stub and console warning body; CodeRabbit quota warning text),
@@ -70,3 +70,7 @@ App code, case diffs, PR titles/bodies and case evidence come from
 prooflinedev/ai-review-benchmarks (Proofline's public assignment starter).
 This runner, the state/expected data, the scoring rules, the tests and the
 evaluation docs are authored for the benchmark exercise.
+
+## Scope clarification (final report)
+
+The executable scorer replays supported stored Greptile and Proofline artifacts for the eight supplied cases and preserves CodeRabbit quota statuses. Copilot and added/regression cases are manually adjudicated, not automatically graded by this package. The final report explains the review differences, the queue-case judgment, and the Azure VM handler run, which does not fulfill the AWS deployment requirement.
